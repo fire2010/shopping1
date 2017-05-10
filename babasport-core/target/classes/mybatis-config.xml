@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- setting 配置 二级缓存  延迟加载。。。 -->
+	
+	<!-- cn.itcast.core.bean.User   别名：User -->
+	<typeAliases>
+		<package name="cn.itcast.core.bean"/>
+	</typeAliases>
+	
+	<!-- Mapper的位置  （写Sql语句的）
+		由于与Spring整合  已经配置的基本包
+		
+	 
+	<mappers>
+		<mapper/>
+		<package name=""/>
+	</mappers>
+	
+	-->
+
+
+
+</configuration>

@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd ">
+
+	<!-- 配置单机版的HttpSolrServer -->
+	<bean id="solrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
+		<!-- 设置请求路径 连接Solr服务器 -->
+		<constructor-arg index="0" value="http://192.168.200.128:8080/solr"/>
+	</bean>
+	
+	<!-- 配置集群版的CloudSolrServer -->
+	<bean id="cloudSolrServer"  class="org.apache.solr.client.solrj.impl.CloudSolrServer">
+		<!-- 设置请求路径 连接三台zkHost -->
+		<constructor-arg index="0" value="192.168.200.128:2181,192.168.200.133:2181,192.168.200.134:2181"/>
+		<!-- 设置默认的collection1 -->
+		<property name="defaultCollection" value="collection1"/>
+	</bean>
+</beans>
